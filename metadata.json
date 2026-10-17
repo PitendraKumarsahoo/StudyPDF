@@ -1,0 +1,6 @@
+{
+  "name": "StudyPDF",
+  "description": "Private, browser-based PDF study toolkit with notes, highlights, bookmarks, reading progress tracking, and distraction-free study mode.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

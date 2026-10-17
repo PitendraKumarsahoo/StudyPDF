@@ -1,0 +1,313 @@
+@import "tailwindcss";
+
+@custom-variant sepia (&:where(.sepia, .sepia *));
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Light Theme Palette (Default) */
+    --primary-bg: #F8FAFC;
+    --secondary-bg: #FFFFFF;
+    --main-text: #0F172A;
+    --secondary-text: #475569;
+    --muted-text: #64748B;
+    --border-color: #E2E8F0;
+    --primary-accent: #2563EB;
+    --teal-accent: #0D9488;
+    --navy-header: #1E3A8A;
+  }
+
+  /* Sepia Theme Palette (Cream / Warm Academic Paper) */
+  html.sepia {
+    --primary-bg: #F6EFE6;
+    --secondary-bg: #FFFDF9;
+    --main-text: #241B14;
+    --secondary-text: #5C4C3E;
+    --muted-text: #8A7868;
+    --border-color: #E6DCD0;
+    --primary-accent: #2563EB;
+    --teal-accent: #0D9488;
+    --navy-header: #1E3A8A;
+  }
+
+  /* Dark Theme Palette */
+  html.dark {
+    --primary-bg: #0B1120;
+    --secondary-bg: #131E33;
+    --main-text: #F8FAFC;
+    --secondary-text: #94A3B8;
+    --muted-text: #64748B;
+    --border-color: #1E293B;
+    --primary-accent: #3B82F6;
+    --teal-accent: #14B8A6;
+    --navy-header: #0F1D3D;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    letter-spacing: -0.011em;
+    background-color: var(--primary-bg);
+    color: var(--main-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  html.sepia body {
+    background-color: #F6EFE6;
+    color: #241B14;
+  }
+
+  html:not(.dark):not(.sepia) body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+  }
+
+  html.dark body {
+    background-color: #0B1120;
+    color: #F8FAFC;
+  }
+
+  /* Custom refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(15, 23, 42, 0.16);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(15, 23, 42, 0.32);
+  }
+}
+
+/* StudyPDF Signature Royal Navy Navbar */
+.studypdf-nav {
+  background-color: #1E3A8A;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.dark .studypdf-nav {
+  background-color: #0F1D3D;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Premium SaaS Glass Panel */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #E6E3DE;
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.03),
+    0 10px 24px -4px rgba(0, 0, 0, 0.04);
+}
+
+.glass-panel-dark {
+  background: rgba(23, 20, 17, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 24px -4px rgba(0, 0, 0, 0.5);
+}
+
+/* Sticky top navbar */
+.glass-toolbar {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #E6E3DE;
+}
+
+.glass-toolbar-dark {
+  background: rgba(23, 20, 17, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Premium SaaS Card */
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E5E0;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: #D6D1CA;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.dark .glass-card {
+  background: #201C18;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.dark .glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.6);
+}
+
+/* Very subtle warm glow behind preview */
+.subtle-warm-glow {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(139, 107, 74, 0.08) 0%,
+    rgba(247, 247, 245, 0) 70%
+  );
+}
+
+.dark .subtle-warm-glow {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(139, 107, 74, 0.12) 0%,
+    rgba(23, 20, 17, 0) 70%
+  );
+}
+
+/* Sepia & Dark Canvas filters for PDF Pages */
+.pdf-filter-sepia canvas {
+  filter: sepia(0.28) contrast(0.96) brightness(0.97);
+}
+
+.pdf-filter-dark canvas {
+  filter: invert(0.92) hue-rotate(180deg) contrast(1.06) brightness(0.94);
+}
+
+/* Sepia theme toolbar & panels */
+.sepia .glass-toolbar {
+  background: rgba(244, 235, 208, 0.94);
+  border-bottom: 1px solid #E2D5C3;
+  color: #3D2F21;
+}
+
+.sepia .glass-panel {
+  background: rgba(247, 240, 222, 0.95);
+  border: 1px solid #E2D5C3;
+}
+
+.sepia .glass-card {
+  background: #FDF8EE;
+  border-color: #E2D5C3;
+}
+
+/* Page target flash from search */
+@keyframes pagePulseMuted {
+  0% {
+    box-shadow: 0 0 0 4px rgba(139, 107, 74, 0.4), 0 12px 24px -4px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.page-highlight-flash {
+  animation: pagePulseMuted 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* PDF.js text layer selection highlight & rendering hints */
+.textLayer {
+  position: absolute;
+  text-align: initial;
+  inset: 0;
+  overflow: clip;
+  opacity: 1;
+  line-height: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+  forced-color-adjust: none;
+  transform-origin: 0 0;
+  caret-color: CanvasText;
+  z-index: 2;
+  user-select: text;
+  -webkit-user-select: text;
+  pointer-events: auto;
+  
+  /* Layout containment & hardware compositing hints to prevent jitter during page turns & zoom */
+  contain: layout style;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  /* Scale factor calculation matching pdfjs-dist specification */
+  --min-font-size: 1;
+  --text-scale-factor: calc(var(--total-scale-factor, var(--scale-factor, 1)) * var(--min-font-size));
+  --min-font-size-inv: calc(1 / var(--min-font-size));
+}
+
+.textLayer :is(span, br) {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.textLayer > :not(.markedContent),
+.textLayer .markedContent span:not(.markedContent) {
+  z-index: 1;
+  --font-height: 0;
+  font-size: calc(var(--text-scale-factor) * var(--font-height));
+  --scale-x: 1;
+  --rotate: 0deg;
+  transform: rotate(var(--rotate)) scaleX(var(--scale-x)) scale(var(--min-font-size-inv));
+}
+
+.textLayer .markedContent {
+  display: contents;
+}
+
+span[role="img"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+/* Theme-Aware Sophisticated Semi-Transparent Selection Overlays */
+
+/* 1. Light Mode: Refined sapphire blue wash that preserves crisp underlying black text */
+.textLayer ::selection,
+.textLayer span::selection {
+  background: rgba(37, 99, 235, 0.28);
+  color: transparent;
+}
+
+/* 2. Sepia Mode: Warm amber-mocha tone blending naturally into creamy book paper */
+.sepia .textLayer ::selection,
+.sepia .textLayer span::selection,
+.pdf-filter-sepia .textLayer ::selection,
+.pdf-filter-sepia .textLayer span::selection {
+  background: rgba(180, 115, 50, 0.36);
+  color: transparent;
+}
+
+/* 3. Dark Mode: Luminous warm amber-gold overlay with crisp contrast on inverted canvas */
+.dark .textLayer ::selection,
+.dark .textLayer span::selection,
+.pdf-filter-dark .textLayer ::selection,
+.pdf-filter-dark .textLayer span::selection {
+  background: rgba(245, 158, 11, 0.45);
+  color: transparent;
+}
